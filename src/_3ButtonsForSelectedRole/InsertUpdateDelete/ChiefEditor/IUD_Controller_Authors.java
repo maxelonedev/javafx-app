@@ -5,28 +5,25 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
-
-import java.io.IOException;
 import java.sql.*;
 
-import static _1Authorization.DatabaseHandler.getConnection;
+import static _1Authorization.Main.openNewScene;
+import static _1Authorization.Main.executeQuery;
+
 public class IUD_Controller_Authors{
+
     @FXML Button Back, btnInsert, btnUpdate, btnDelete;
     @FXML TableView<Authors> tvBooks;
     @FXML TableColumn<Authors, Integer> col_id;
     @FXML TableColumn<Authors, String> col_surname,col_name,col_patronymic;
     @FXML TextField tf_id, tf_surname, tf_name, tf_patronymic;
+
     @FXML void handleButtonAction(ActionEvent event) {
         if(event.getSource() == btnInsert){
             insertRecord();
@@ -36,6 +33,7 @@ public class IUD_Controller_Authors{
             deleteButton();
         }
     }
+
     public void handleClick(MouseEvent event) {
         try {
             Authors book = tvBooks.getSelectionModel().getSelectedItem();
@@ -43,18 +41,21 @@ public class IUD_Controller_Authors{
             tf_surname.setText(book.getSurname());
             tf_name.setText(book.getName());
             tf_patronymic.setText(book.getPatronymic());
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             System.out.println("handleClick " + e);
         }
     }
+
     @FXML
     void initialize(){
         Back.setOnAction(event -> {
             Back.getScene().getWindow().hide();
-            new DatabaseHandler.openNewScene("/_2SelectedRole/ChiefEditor/MainForChiefEditor.fxml", "Авторизация/Главный редактор", "/assets/employee.png");
+            openNewScene("/_2SelectedRole/ChiefEditor/MainForChiefEditor.fxml", "Авторизация/Главный редактор", "/assets/employee.png");
         });
         showBooks();
     }
+
     public ObservableList<Authors> getBooksList(){
         ObservableList<Authors> bookList = FXCollections.observableArrayList();
         Connection conn = DatabaseHandler.getConnection();
@@ -79,6 +80,7 @@ public class IUD_Controller_Authors{
         }
         return bookList;
     }
+
     public void showBooks(){
         ObservableList<Authors> list = getBooksList();
         col_id.setCellValueFactory(new PropertyValueFactory<Authors, Integer>("id"));
@@ -87,6 +89,7 @@ public class IUD_Controller_Authors{
         col_patronymic.setCellValueFactory(new PropertyValueFactory<Authors, String>("patronymic"));
         tvBooks.setItems(list);
     }
+
     void insertRecord(){
         String query = "INSERT INTO authors VALUES (" +
                 Integer.parseInt(tf_id.getText()) + "," +
@@ -94,9 +97,10 @@ public class IUD_Controller_Authors{
                 "'" + tf_name.getText() + "'" + "," +
                 "'" + tf_patronymic.getText() + "'" +
                 ")";
-        new DatabaseHandler().executeQuery(query);
+        executeQuery(query);
         showBooks();
     }
+
     void updateRecord(){
         try {
             /* UPDATE `literary_publishing_house`.Authors SET id_author = 1, book_name = 'a', genre = 'a', circulation = 1, list = 1 WHERE id = 1 */
@@ -104,16 +108,17 @@ public class IUD_Controller_Authors{
                     "name = '" + tf_name.getText() + "'," +
                     "patronymic = '" + tf_patronymic.getText() + "'" +
                     "WHERE id = " + Integer.parseInt(tf_id.getText()) + " ";
-            new DatabaseHandler().executeQuery(query);
+            executeQuery(query);
             showBooks();
         } catch (NumberFormatException numberFormatException) {
             System.out.print("\nИсключение формата числа: Для входной строки: ' ' ");
         }
     }
+
     void deleteButton(){
         try {
             String query = "DELETE FROM authors WHERE id = " + Integer.parseInt(tf_id.getText()) + " ";
-            new DatabaseHandler().executeQuery(query);
+            executeQuery(query);
             showBooks();
         } catch (NumberFormatException e) {
             System.out.println("Не указан id");

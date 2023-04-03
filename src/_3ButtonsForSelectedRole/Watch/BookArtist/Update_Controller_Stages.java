@@ -15,6 +15,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.*;
+
+import static _1Authorization.Main.openNewScene;
+
 public class Update_Controller_Stages{
     @FXML  Button Back, btnUpdate;
     @FXML  TableView<Stages> tvBooks;
@@ -45,7 +48,7 @@ public class Update_Controller_Stages{
     void initialize(){
         Back.setOnAction(event -> {
             Back.getScene().getWindow().hide();
-            new DatabaseHandler.openNewScene("/_2SelectedRole/BookArtist/MainForBookArtist.fxml", "Авторизация/Иллюстратор", "/assets/employee.png");
+            openNewScene("/_2SelectedRole/BookArtist/MainForBookArtist.fxml", "Авторизация/Иллюстратор", "/assets/employee.png");
         });
         showBooks();
     }

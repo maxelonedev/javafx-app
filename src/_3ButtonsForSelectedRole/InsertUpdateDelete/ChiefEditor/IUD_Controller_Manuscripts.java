@@ -20,6 +20,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.*;
+
+import static _1Authorization.Main.executeQuery;
+import static _1Authorization.Main.openNewScene;
+
 public class IUD_Controller_Manuscripts{
     @FXML Button Back, btnInsert, btnUpdate, btnDelete;
     @FXML TableView<Manuscripts> tvManuscripts;
@@ -50,7 +54,7 @@ public class IUD_Controller_Manuscripts{
     void initialize(){
         Back.setOnAction(event -> {
             Back.getScene().getWindow().hide();
-            new DatabaseHandler.openNewScene("/_2SelectedRole/ChiefEditor/MainForChiefEditor.fxml", "Авторизация/Главный редактор", "/assets/employee.png");
+            openNewScene("/_2SelectedRole/ChiefEditor/MainForChiefEditor.fxml", "Авторизация/Главный редактор", "/assets/employee.png");
         });
         showManuscripts();
     }
@@ -98,7 +102,7 @@ public class IUD_Controller_Manuscripts{
                 "'" + tf_genre.getText() + "'" + "," +
                 Integer.parseInt(tf_circulation.getText()) + "," +
                 Integer.parseInt(tf_list.getText()) + ")";
-        new DatabaseHandler().executeQuery(query);
+        executeQuery(query);
         showManuscripts();
     }
     void updateRecord(){
@@ -109,7 +113,7 @@ public class IUD_Controller_Manuscripts{
                     "genre = '" + tf_genre.getText() + "'," +
                     "circulation = " + Integer.parseInt(tf_circulation.getText()) + "," +
                     "list = " + Integer.parseInt(tf_list.getText()) + " WHERE id = " + Integer.parseInt(tf_id.getText()) + " ";
-            new DatabaseHandler().executeQuery(query);
+            executeQuery(query);
             showManuscripts();
         } catch (NumberFormatException numberFormatException) {
             System.out.print("\nИсключение формата числа: Для входной строки: ' ' ");
@@ -118,7 +122,7 @@ public class IUD_Controller_Manuscripts{
     void deleteButton(){
         try {
             String query = "DELETE FROM manuscripts WHERE id = " + Integer.parseInt(tf_id.getText()) + " ";
-            new DatabaseHandler().executeQuery(query);
+            executeQuery(query);
             showManuscripts();
         } catch (NumberFormatException e) {
             System.out.println("Не указан id");

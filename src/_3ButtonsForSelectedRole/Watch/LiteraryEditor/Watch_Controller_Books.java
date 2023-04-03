@@ -19,6 +19,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.*;
+
+import static _1Authorization.Main.openNewScene;
+
 public class Watch_Controller_Books{
     @FXML  Button Back;
     @FXML  TableView<Books> tvBooks;
@@ -28,7 +31,7 @@ public class Watch_Controller_Books{
     void initialize(){
         Back.setOnAction(event -> {
             Back.getScene().getWindow().hide();
-            new DatabaseHandler.openNewScene("/_2SelectedRole/LiteraryEditor/MainForLiteraryEditor.fxml", "Авторизация/Литературный редактор", "/assets/employee.png");
+            openNewScene("/_2SelectedRole/LiteraryEditor/MainForLiteraryEditor.fxml", "Авторизация/Литературный редактор", "/assets/employee.png");
         });
         showBooks();
     }

@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.sql.*;
 
 public class DatabaseHandler {
+
     /* connect to database */
     public static Connection getConnection() {
         Connection dbConnection = null;
@@ -22,17 +23,7 @@ public class DatabaseHandler {
         }
         return dbConnection;
     }
-    /* execute the query usually using for insert and update */
-    public Statement executeQuery(String query) {
-        Statement st = null;
-        try {
-            st = getConnection().createStatement();
-            st.executeUpdate(query);
-        } catch (Exception e) {
-            System.out.println("executeQuery: " + e);
-        }
-        return st;
-    }
+
     /* get user from database */
     public ResultSet getUser(User user) {
         ResultSet resSet = null;
@@ -46,23 +37,5 @@ public class DatabaseHandler {
             System.out.println("getUser " + e);
         }
         return  resSet;
-    }
-    /* open new scene, and close previous(in controller-initialize that called that method) */
-    public static class openNewScene {
-        public openNewScene(String window, String title, String image) {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource(window));
-            try {
-                loader.load();
-            } catch (IOException e) {
-                System.out.println("openNewScene" + e);
-            }
-            Stage s = new Stage();
-            Image ic = new Image(image);
-            s.getIcons().add(ic);
-            s.setTitle(title);
-            s.setScene(new Scene(loader.getRoot()));
-            s.show();
-        }
     }
 }

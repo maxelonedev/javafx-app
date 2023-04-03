@@ -1,4 +1,5 @@
 package _3ButtonsForSelectedRole.InsertUpdateDelete.ChiefEditor;
+
 import _1Authorization.DatabaseHandler;
 import _3ButtonsForSelectedRole.skeleton.Book_edition;
 import javafx.collections.FXCollections;
@@ -9,6 +10,10 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import java.sql.*;
+
+import static _1Authorization.Main.executeQuery;
+import static _1Authorization.Main.openNewScene;
+
 public class IUD_Controller_Book_edition{
     @FXML Button Back, btnInsert, btnUpdate, btnDelete;
     @FXML TableView<Book_edition> tvBooks;
@@ -44,7 +49,7 @@ public class IUD_Controller_Book_edition{
     void initialize() {
         Back.setOnAction(event -> {
             Back.getScene().getWindow().hide();
-            new DatabaseHandler.openNewScene("/_2SelectedRole/ChiefEditor/MainForChiefEditor.fxml", "Авторизация/Главный редактор", "/assets/employee.png");
+            openNewScene("/_2SelectedRole/ChiefEditor/MainForChiefEditor.fxml", "Авторизация/Главный редактор", "/assets/employee.png");
         });
         showBooks();
     }
@@ -106,7 +111,7 @@ public class IUD_Controller_Book_edition{
                 Integer.parseInt(tf_circulation.getText()) + "," +
                 "'" + tf_date_coc.getText() + "'" + "," +
                 Integer.parseInt(tf_publication_year.getText()) + ")";
-        new DatabaseHandler().executeQuery(query);
+        executeQuery(query);
         showBooks();
     }
     void updateRecord() {
@@ -121,7 +126,7 @@ public class IUD_Controller_Book_edition{
                     "circulation = " + Integer.parseInt(tf_circulation.getText()) + "," +
                     "date_coc = " + "'" + tf_date_coc.getText() + "'" + "," +
                     "publication_year = " + Integer.parseInt(tf_publication_year.getText()) + " WHERE id = " + Integer.parseInt(tf_id.getText()) + " ";
-            new DatabaseHandler().executeQuery(query);
+            executeQuery(query);
             showBooks();
         } catch (Exception e) {
             System.out.println("updateRecord " + e);
@@ -130,7 +135,7 @@ public class IUD_Controller_Book_edition{
     private void deleteButton() {
         try {
             String query = "DELETE FROM book_edition WHERE id = " + Integer.parseInt(tf_id.getText()) + " ";
-            new DatabaseHandler().executeQuery(query);
+            executeQuery(query);
             showBooks();
         } catch (NumberFormatException e) {
             System.out.println("Не указан id");

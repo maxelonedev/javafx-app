@@ -10,6 +10,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
 import java.sql.*;
+
+import static _1Authorization.Main.executeQuery;
+import static _1Authorization.Main.openNewScene;
+
 public class IUD_Controller_Stages{
     @FXML Button Back, btnInsert, btnUpdate, btnDelete;
     @FXML TableView<Stages> tvBooks;
@@ -64,7 +68,7 @@ public class IUD_Controller_Stages{
     @FXML void initialize(){
         Back.setOnAction(event -> {
             Back.getScene().getWindow().hide();
-            new DatabaseHandler.openNewScene("/_2SelectedRole/ChiefEditor/MainForChiefEditor.fxml", "Авторизация/Главный редактор", "/assets/employee.png");
+            openNewScene("/_2SelectedRole/ChiefEditor/MainForChiefEditor.fxml", "Авторизация/Главный редактор", "/assets/employee.png");
         });
         showBooks();
     }
@@ -174,7 +178,7 @@ public class IUD_Controller_Stages{
     void deleteButton(){
         try {
             String query = "DELETE FROM stages WHERE id = " + Integer.parseInt(tf_id.getText()) + " ";
-            new DatabaseHandler().executeQuery(query);
+            executeQuery(query);
             showBooks();
         } catch (NumberFormatException e) {
             System.out.println("Не указан id");

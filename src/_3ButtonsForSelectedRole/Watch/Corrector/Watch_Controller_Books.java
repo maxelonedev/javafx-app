@@ -2,7 +2,6 @@ package _3ButtonsForSelectedRole.Watch.Corrector;
 import _3ButtonsForSelectedRole.skeleton.Books;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,16 +9,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.*;
 
 import static _1Authorization.DatabaseHandler.getConnection;
+import static _1Authorization.Main.openNewScene;
 
 public class Watch_Controller_Books{
     @FXML
@@ -80,18 +78,5 @@ public class Watch_Controller_Books{
         col_circulation.setCellValueFactory(new PropertyValueFactory<Books, Integer>("circulation"));
         col_list.setCellValueFactory(new PropertyValueFactory<Books, Integer>("list"));
         tvBooks.setItems(list);
-    }
-    public void openNewScene(String window, String title, String image){
-        Back.getScene().getWindow().hide();
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(window));
-        try { loader.load(); } catch (IOException e) {e.printStackTrace();}
-        Parent root = loader.getRoot();
-        Stage stage = new Stage();
-        Image Icon = new Image(image);
-        stage.getIcons().add(Icon);
-        stage.setTitle(title);
-        stage.setScene(new Scene(root));
-        stage.show();
     }
 }

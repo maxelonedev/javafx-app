@@ -3,22 +3,15 @@ import _1Authorization.DatabaseHandler;
 import _3ButtonsForSelectedRole.skeleton.Authors;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
-
-import java.io.IOException;
 import java.sql.*;
+
+import static _1Authorization.Main.openNewScene;
+
 public class Watch_Controller_Authors{
     @FXML  Button Back;
     @FXML  TableView<Authors> tvBooks;
@@ -28,7 +21,7 @@ public class Watch_Controller_Authors{
     void initialize(){
         Back.setOnAction(event -> {
             Back.getScene().getWindow().hide();
-            new DatabaseHandler.openNewScene("/_2SelectedRole/TechnicalEditor/MainForTechnicalEditor.fxml", "Авторизация/Технический редактор", "/assets/employee.png");
+            openNewScene("/_2SelectedRole/TechnicalEditor/MainForTechnicalEditor.fxml", "Авторизация/Технический редактор", "/assets/employee.png");
         });
         showBooks();
     }
