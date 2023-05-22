@@ -40,6 +40,7 @@ public class Watch_Controller_Books{
     void initialize(){
         Back.setOnAction(event -> {
             openNewScene("/_2SelectedRole/Corrector/MainForCorrector.fxml", "Авторизация/Корректор", "/assets/employee.png");
+            Back.getScene().getWindow().hide();
         });
         showBooks();
     }

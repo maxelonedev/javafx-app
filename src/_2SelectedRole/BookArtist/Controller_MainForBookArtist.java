@@ -14,12 +14,15 @@ public class Controller_MainForBookArtist {
     @FXML void initialize(){
         Back.setOnAction(event -> {
             openNewScene("/_1Authorization/Authorization.fxml", "Авторизация/", "/assets/book.png");
+            Back.getScene().getWindow().hide();
         });
         Stages.setOnAction(event -> {
             openNewScene("/_3ButtonsForSelectedRole/Watch/BookArtist/Update_Stages.fxml", "Иллюстратор/Этапы", "/assets/option.png");
+            Stages.getScene().getWindow().hide();
         });
         Books.setOnAction(event -> {
             openNewScene("/_3ButtonsForSelectedRole/Watch/BookArtist/Watch_Books.fxml", "Иллюстратор/Книги", "/assets/option.png");
+            Books.getScene().getWindow().hide();
         });
     }
 }

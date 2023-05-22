@@ -31,8 +31,8 @@ Watch_Controller_Authors{
     @FXML
     void initialize(){
         Back.setOnAction(event -> {
-            Back.getScene().getWindow().hide();
             openNewScene("/_2SelectedRole/LiteraryEditor/MainForLiteraryEditor.fxml", "Авторизация/Литературный редактор", "/assets/employee.png");
+            Back.getScene().getWindow().hide();
         });
         showBooks();
     }

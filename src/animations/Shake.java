@@ -7,7 +7,7 @@ import javafx.util.Duration;
 /* Неправильно ввел = будет трясти. */
 public class Shake {
      TranslateTransition tt;
-    /* Конструктор Shake, принимающий параметр Node. */
+     /* Конструктор Shake, принимающий параметр Node. */
     public Shake(Node node){
         /* выделяем память */
         tt = new TranslateTransition(Duration.millis(70), node);

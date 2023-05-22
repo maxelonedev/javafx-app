@@ -14,12 +14,15 @@ public class Controller_MainForCorrector {
     @FXML void initialize(){
         Back.setOnAction(event -> {
             openNewScene("/_1Authorization/Authorization.fxml", "Авторизация/", "/assets/book.png");
+            Back.getScene().getWindow().hide();
         });
         Books.setOnAction(event -> {
             openNewScene("/_3ButtonsForSelectedRole/Watch/Corrector/Watch_Books.fxml", "Корректор/Книги", "/assets/option.png");
+            Books.getScene().getWindow().hide();
         });
         Stages.setOnAction(event -> {
             openNewScene("/_3ButtonsForSelectedRole/Watch/Corrector/Update_Stages.fxml", "Корректор/Этапы", "/assets/option.png");
+            Stages.getScene().getWindow().hide();
         });
     }
 }

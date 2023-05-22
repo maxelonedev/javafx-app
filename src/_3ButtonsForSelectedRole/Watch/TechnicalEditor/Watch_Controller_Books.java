@@ -30,8 +30,8 @@ public class Watch_Controller_Books{
     @FXML
     void initialize(){
         Back.setOnAction(event -> {
-            Back.getScene().getWindow().hide();
             openNewScene("/_2SelectedRole/TechnicalEditor/MainForTechnicalEditor.fxml", "Авторизация/Технический редактор", "/assets/employee.png");
+            Back.getScene().getWindow().hide();
         });
         showBooks();
     }

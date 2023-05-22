@@ -48,8 +48,8 @@ public class IUD_Controller_Book_edition{
     @FXML
     void initialize() {
         Back.setOnAction(event -> {
-            Back.getScene().getWindow().hide();
             openNewScene("/_2SelectedRole/ChiefEditor/MainForChiefEditor.fxml", "Авторизация/Главный редактор", "/assets/employee.png");
+            Back.getScene().getWindow().hide();
         });
         showBooks();
     }

@@ -27,6 +27,7 @@ public class Authorization_Controller {
                 ResultSet rs = st.executeQuery(query);
                 while (rs.next()) {
                     int role = rs.getInt(1);
+                    authorizationButton.getScene().getWindow().hide();
                     if(role == 1) {
                         System.out.println("Добро пожаловать, Главный редактор " + firstUpperCase(loginText) + "!");
                         openNewScene("/_2SelectedRole/ChiefEditor/MainForChiefEditor.fxml", "Авторизация/Главный редактор/", "/assets/employee.png");

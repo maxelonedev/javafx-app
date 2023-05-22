@@ -14,12 +14,15 @@ public class Controller_MainForLiteraryEditor {
     @FXML void initialize(){
         Back.setOnAction(event -> {
             openNewScene("/_1Authorization/Authorization.fxml", "Авторизация/", "/assets/book.png");
+            Back.getScene().getWindow().hide();
         });
         Authors.setOnAction(event -> {
             openNewScene("/_3ButtonsForSelectedRole/Watch/LiteraryEditor/Watch_Authors.fxml", "Литературный редактор/Авторы", "/assets/option.png");
+            Authors.getScene().getWindow().hide();
         });
         Books.setOnAction(event -> {
             openNewScene("/_3ButtonsForSelectedRole/Watch/LiteraryEditor/Watch_Books.fxml", "Литературный редактор/Книги", "/assets/option.png");
+            Books.getScene().getWindow().hide();
         });
     }
 }

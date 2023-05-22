@@ -47,8 +47,8 @@ public class Update_Controller_Stages{
     @FXML
     void initialize(){
         Back.setOnAction(event -> {
-            Back.getScene().getWindow().hide();
             openNewScene("/_2SelectedRole/BookArtist/MainForBookArtist.fxml", "Авторизация/Иллюстратор", "/assets/employee.png");
+            Back.getScene().getWindow().hide();
         });
         showBooks();
     }
