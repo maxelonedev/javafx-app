@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../_1Authorization/Style.css" style="-fx-background-color: bbdefb;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_3ButtonsForSelectedRole.InsertUpdateDelete.ChiefEditor.IUD_Controller_Books">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="605.0" style="-fx-background-color: bbdefb;" stylesheets="@../../../_1Authorization/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_3ButtonsForSelectedRole.InsertUpdateDelete.ChiefEditor.IUD_Controller_Books">
    <children>
-      <Button fx:id="Back" layoutX="497.0" layoutY="352.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="89.0" style="-fx-background-color: f2c655; -fx-border-color: silver;" text="Назад">
+      <Button fx:id="Back" layoutX="502.0" layoutY="352.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="95.0" style="-fx-background-color: f2c655; -fx-border-color: silver;" text="Назад">
          <font>
             <Font name="Cascadia Code Regular" size="17.0" />
          </font>
@@ -71,7 +71,12 @@
             <Insets top="20.0" />
          </padding>
       </VBox>
-      <Button fx:id="btnUpdate" layoutX="128.0" layoutY="352.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: f2c655; -fx-border-color: silver;" text="Обновить">
+      <Button fx:id="Print" layoutX="8.0" layoutY="352.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="95.0" style="-fx-background-color: f2c655; -fx-border-color: silver;" text="Печать">
+         <font>
+            <Font name="Cascadia Code Regular" size="17.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnUpdate" layoutX="226.0" layoutY="352.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: f2c655; -fx-border-color: silver;" text="Обновить">
          <font>
             <Font name="Cascadia Code Regular" size="17.0" />
          </font>
@@ -83,7 +88,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="btnInsert" layoutX="14.0" layoutY="352.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="34.0" prefWidth="107.0" style="-fx-background-color: f2c655; -fx-border-color: silver;" text="Внести">
+      <Button fx:id="btnInsert" layoutX="112.0" layoutY="352.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="34.0" prefWidth="107.0" style="-fx-background-color: f2c655; -fx-border-color: silver;" text="Внести">
          <font>
             <Font name="Cascadia Code Regular" size="17.0" />
          </font>
@@ -95,7 +100,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="btnDelete" layoutX="266.0" layoutY="352.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: f2c655; -fx-border-color: silver;" text="Удалить">
+      <Button fx:id="btnDelete" layoutX="364.0" layoutY="352.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: f2c655; -fx-border-color: silver;" text="Удалить">
          <font>
             <Font name="Cascadia Code Regular" size="17.0" />
          </font>

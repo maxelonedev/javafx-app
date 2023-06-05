@@ -24,7 +24,7 @@ import static _1Authorization.Main.executeQuery;
 import static _1Authorization.Main.openNewScene;
 
 public class IUD_Controller_Books{
-    @FXML Button Back, btnInsert, btnUpdate, btnDelete;
+    @FXML Button Back, btnInsert, btnUpdate, btnDelete, Print;
     @FXML TableView<Books> tvBooks;
     @FXML TableColumn<Books, Integer> col_id, col_id_author, col_circulation, col_list;
     @FXML TableColumn<Books, String> col_book_name, col_genre;
