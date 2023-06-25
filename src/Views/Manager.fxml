@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ManagerController">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: bbdefb;">
+         <children>
+            <AnchorPane prefHeight="81.0" prefWidth="700.0" style="-fx-background-color: #5c3232;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutY="21.0" prefHeight="39.0" prefWidth="700.0" text="Literary Edition" textFill="WHITE">
+                     <font>
+                        <Font name="Cascadia Mono Regular" size="33.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Button fx:id="btnBookEdition" layoutX="367.0" layoutY="200.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="148.0" style="-fx-background-color: f2c655;" text="Book edition">
+               <font>
+                  <Font name="Bookman Old Style" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnBooks" layoutX="445.0" layoutY="115.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="156.0" style="-fx-background-color: f2c655;" text="Books">
+               <font>
+                  <Font name="Bookman Old Style Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnAuthors" layoutX="112.0" layoutY="115.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="156.0" style="-fx-background-color: f2c655;" text="Authors">
+               <font>
+                  <Font name="Bookman Old Style" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnManuscripts" layoutX="280.0" layoutY="115.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="156.0" style="-fx-background-color: f2c655;" text="Manuscripts">
+               <font>
+                  <Font name="Bookman Old Style" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnStages" layoutX="209.0" layoutY="200.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="148.0" style="-fx-background-color: f2c655;" text="Stages">
+               <font>
+                  <Font name="Bookman Old Style" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnBack" layoutX="304.0" layoutY="336.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="113.0" style="-fx-background-color: f2c655;" text="Back">
+               <font>
+                  <Font name="Bookman Old Style" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</HBox>

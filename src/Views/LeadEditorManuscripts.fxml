@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../Views/Style.css" style="-fx-background-color: bbdefb;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_3ButtonsForSelectedRole.InsertUpdateDelete.LeadEditor.IUD_Controller_Manuscripts">
+   <children>
+      <Button fx:id="Back" layoutX="497.0" layoutY="352.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="89.0" style="-fx-background-color: f2c655; -fx-border-color: silver;" text="Назад">
+         <font>
+            <Font name="Cascadia Code Regular" size="17.0" />
+         </font>
+      </Button>
+      <AnchorPane layoutX="-9.0" prefHeight="71.0" prefWidth="614.0" style="-fx-background-color: #5c3232;">
+         <children>
+            <Label layoutX="199.0" layoutY="9.0" text="Рукописи" textFill="WHITE">
+               <font>
+                  <Font name="Cascadia Code Regular" size="46.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <TableView fx:id="tvManuscripts" layoutX="194.0" layoutY="81.0" onMouseClicked="#handleClick" prefHeight="251.0" prefWidth="399.0" style="-fx-background-color: fafafa; -fx-border-color: silver;">
+         <columns>
+            <TableColumn fx:id="col_id" prefWidth="19.0" text="ID" />
+            <TableColumn fx:id="col_id_author" minWidth="7.0" prefWidth="68.0" text="ID Автора" />
+            <TableColumn fx:id="col_manuscript_name" prefWidth="137.0" text="Рукопись" />
+            <TableColumn fx:id="col_genre" prefWidth="76.0" text="Жанр" />
+            <TableColumn fx:id="col_circulation" minWidth="4.0" prefWidth="53.0" text="Тираж" />
+            <TableColumn fx:id="col_list" prefWidth="44.0" text="Листы" />
+         </columns>
+      </TableView>
+      <VBox alignment="CENTER" layoutY="72.0" prefHeight="260.0" prefWidth="192.0" spacing="12.0">
+         <children>
+            <TextField fx:id="tf_id" prefHeight="25.0" prefWidth="120.0" promptText="ID рукописи" style="-fx-background-color: fafafa; -fx-border-color: silver; -fx-border-radius: 55; -fx-background-radius: 55;">
+               <font>
+                  <Font name="Cascadia Code Regular" size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="tf_author" prefHeight="25.0" prefWidth="120.0" promptText="ID автора" style="-fx-background-color: fafafa; -fx-border-color: silver; -fx-border-radius: 55; -fx-background-radius: 55;">
+               <font>
+                  <Font name="Cascadia Code Regular" size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="tf_manuscript_name" layoutX="10.0" layoutY="65.0" prefHeight="30.0" prefWidth="411.0" promptText="Название рукописи" style="-fx-background-color: fafafa; -fx-border-color: silver; -fx-border-radius: 55; -fx-background-radius: 55;">
+               <font>
+                  <Font name="Cascadia Code Regular" size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="tf_genre" layoutX="10.0" layoutY="114.0" prefHeight="25.0" prefWidth="120.0" promptText="Жанр" style="-fx-background-color: fafafa; -fx-border-color: silver; -fx-border-radius: 55; -fx-background-radius: 55;">
+               <font>
+                  <Font name="Cascadia Code Regular" size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="tf_circulation" prefHeight="30.0" prefWidth="98.0" promptText="Тираж" style="-fx-background-color: fafafa; -fx-border-color: silver; -fx-border-radius: 55; -fx-background-radius: 55;">
+               <font>
+                  <Font name="Cascadia Code Regular" size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="tf_list" prefHeight="31.0" prefWidth="180.0" promptText="Объём печатных листов" style="-fx-background-color: fafafa; -fx-border-color: silver; -fx-border-radius: 55; -fx-background-radius: 55;">
+               <font>
+                  <Font name="Cascadia Code Regular" size="14.0" />
+               </font>
+            </TextField>
+         </children>
+         <padding>
+            <Insets top="20.0" />
+         </padding>
+      </VBox>
+      <Button fx:id="btnUpdate" layoutX="129.0" layoutY="352.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: f2c655; -fx-border-color: silver;" text="Обновить">
+         <font>
+            <Font name="Cascadia Code Regular" size="17.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/available-updates-16.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnInsert" layoutX="14.0" layoutY="352.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="34.0" prefWidth="107.0" style="-fx-background-color: f2c655; -fx-border-color: silver;" text="Внести">
+         <font>
+            <Font name="Cascadia Code Regular" size="17.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/plus-16x16.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnDelete" layoutX="264.0" layoutY="352.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: f2c655; -fx-border-color: silver;" text="Удалить">
+         <font>
+            <Font name="Cascadia Code Regular" size="17.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/remove.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>
